@@ -79,6 +79,12 @@ public class Principal extends JFrame {
 		JMenuItem itmSalir = new JMenuItem("Salir");
 		mArchivo.add(itmSalir);
 		
+		itmSalir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
+		
 		JMenu mAyuda = new JMenu("Ayuda");
 		menuBar.add(mAyuda);
 		
@@ -87,6 +93,15 @@ public class Principal extends JFrame {
 		
 		JMenuItem itmAcercaDe = new JMenuItem("Acerca de");
 		mAyuda.add(itmAcercaDe);
+		
+		JMenu mFormato = new JMenu("Formato");
+		menuBar.add(mFormato);
+		
+		JMenuItem itmFuente = new JMenuItem("Fuente");
+		mFormato.add(itmFuente);
+		
+		JMenuItem itmColores = new JMenuItem("Colores");
+		mFormato.add(itmColores);
 		contentPane = new JPanel();
 		contentPane.setBorder(null);
 		setContentPane(contentPane);

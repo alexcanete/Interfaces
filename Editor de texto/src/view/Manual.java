@@ -2,6 +2,10 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -29,8 +33,9 @@ public class Manual extends JDialog {
 
 	/**
 	 * Create the dialog.
+	 * @throws FileNotFoundException 
 	 */
-	public Manual() {
+	public Manual() throws FileNotFoundException {
 		setTitle("Manual");
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
@@ -39,21 +44,12 @@ public class Manual extends JDialog {
 		contentPanel.setLayout(new BorderLayout(0, 0));
 		{
 			JTextPane textPane = new JTextPane();
-			textPane.setText("Este es el manual.    Este es el manual.    Este es el manual.    Este es el manual.    "
-					+ "Este es el manual.    Este es el manual.    Este es el manual.    Este es el manual.    "
-					+ "Este es el manual.    Este es el manual.    Este es el manual.    Este es el manual.    "
-					+ "Este es el manual.    Este es el manual.    Este es el manual.    Este es el manual.    "
-					+ "Este es el manual.    Este es el manual.    Este es el manual.    Este es el manual.    "
-					+ "Este es el manual.    Este es el manual.    Este es el manual.    Este es el manual.    "
-					+ "Este es el manual.    Este es el manual.    Este es el manual.    Este es el manual.    "
-					+ "Este es el manual.    Este es el manual.    Este es el manual.    Este es el manual.    "
-					+ "Este es el manual.    Este es el manual.    Este es el manual.    Este es el manual.    "
-					+ "Este es el manual.    Este es el manual.    Este es el manual.    Este es el manual.    "
-					+ "Este es el manual.    Este es el manual.    Este es el manual.    Este es el manual.    "
-					+ "Este es el manual.    Este es el manual.    Este es el manual.    Este es el manual.    "
-					+ "Este es el manual.    Este es el manual.    Este es el manual.    Este es el manual.    ");
+			
+			textPane.setText(controller.Controlador.muestraContenido("manual.txt"));
 			contentPanel.add(textPane, BorderLayout.CENTER);
 		}
 	}
+	
+	
 
 }

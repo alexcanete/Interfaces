@@ -90,6 +90,29 @@ public class Controlador {
 	}
 	
 	
+	public static String muestraContenido(String archivo) throws FileNotFoundException {
+        String cadena = "";
+        FileReader filereader = new FileReader(archivo);
+        BufferedReader bufferedreader = new BufferedReader(filereader);
+        String allText = "";
+        
+        try {
+        	while((cadena = bufferedreader.readLine())!=null) {
+                allText += cadena;
+        
+              
+        	}
+        	filereader.close();
+        	bufferedreader.close();
+        	}catch (FileNotFoundException e) {
+        		e.printStackTrace();
+        	}catch (IOException e) {
+        		e.printStackTrace();
+        	}
+        
+        return allText;
+    }
+	
 	public static File guardarComo() {
 		File nuevoArchivo = null;
 		String sPath;
@@ -100,13 +123,25 @@ public class Controlador {
 		jChooser.setFileFilter(filtro);
 		int fileSaveButton = jChooser.showSaveDialog(null);
 		
-		
+		try {
+			nuevoArchivo.createNewFile();
+		}catch(IOException e) {
+			
+		}
+		//if (guardarArchivo(nuevoArchivo)) {
+			//nuevoArchivo= null;
+		//}
 		
 		
 		return nuevoArchivo;
 		
 		
 	}
+	
+	
+	public void nuevo() {
+		
+	}	
 	
 	
 	
