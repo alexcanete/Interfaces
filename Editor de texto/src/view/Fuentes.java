@@ -1,6 +1,8 @@
 package view;
 
 import java.awt.BorderLayout;
+import java.awt.Checkbox;
+import java.awt.CheckboxGroup;
 import java.awt.FlowLayout;
 
 import javax.swing.JButton;
@@ -35,17 +37,17 @@ public class Fuentes extends JDialog {
 		setBounds(100, 100, 335, 242);
 		getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(30, 11, 46, 14);
-		getContentPane().add(lblNewLabel);
+		JLabel lblFuente = new JLabel("Fuente");
+		lblFuente.setBounds(30, 11, 46, 14);
+		getContentPane().add(lblFuente);
 		
-		JLabel lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setBounds(117, 11, 46, 14);
-		getContentPane().add(lblNewLabel_1);
+		JLabel lbltamanio = new JLabel("Tama\u00F1o");
+		lbltamanio.setBounds(117, 11, 46, 14);
+		getContentPane().add(lbltamanio);
 		
-		JLabel lblNewLabel_2 = new JLabel("New label");
-		lblNewLabel_2.setBounds(214, 11, 46, 14);
-		getContentPane().add(lblNewLabel_2);
+		JLabel lblEstilo = new JLabel("Estilo");
+		lblEstilo.setBounds(214, 11, 46, 14);
+		getContentPane().add(lblEstilo);
 		
 		List list = new List();
 		list.setBounds(23, 50, 64, 101);
@@ -55,12 +57,19 @@ public class Fuentes extends JDialog {
 		list_1.setBounds(117, 50, 46, 101);
 		getContentPane().add(list_1);
 		
-		JRadioButtonMenuItem rdbtnmntmNewRadioItem = new JRadioButtonMenuItem("New radio item");
-		rdbtnmntmNewRadioItem.setBounds(176, 36, 133, 115);
-		getContentPane().add(rdbtnmntmNewRadioItem);
+		JPanel pEstilo = new JPanel();
+		CheckboxGroup grpEstilo = new CheckboxGroup();
 		
-		JRadioButton rdbtnNewRadioButton = new JRadioButton("New radio button");
-		rdbtnNewRadioButton.setBounds(0, 0, 109, 23);
-		getContentPane().add(rdbtnNewRadioButton);
+		Checkbox opcNormal = new Checkbox("Normal", true, grpEstilo);
+		Checkbox opcNegrita = new Checkbox("Negrita", true, grpEstilo);
+		Checkbox opcCursiva = new Checkbox("Cursiva", true, grpEstilo);
+		
+		pEstilo.add(opcNormal);
+		pEstilo.add(opcNegrita);
+		pEstilo.add(opcCursiva);
+		add(pEstilo);
+		pEstilo.setBounds(200,100,200,100);
+		
+
 	}
 }
