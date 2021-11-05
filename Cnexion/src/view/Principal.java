@@ -67,6 +67,7 @@ public class Principal extends JFrame {
 		});
 		
 		mntmTest.addActionListener(l -> {
+			controller.Controlador.testCon();
 			frmTest.abrirTest();
 		});
 		

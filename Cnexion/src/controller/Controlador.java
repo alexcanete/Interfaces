@@ -8,7 +8,7 @@ import model.Conexion;
 public class Controlador {
 
     public static Object con;
-    public void createConexion(){
+    public static void createConexion(){
         String dbHost = view.Conexion.txtHost.getText() + "";
         String dbPuerto = view.Conexion.txtPuerto.getText() + "";
         String dbNombre = view.Conexion.txtNombre.getText() + "";
@@ -49,11 +49,11 @@ public class Controlador {
     }
 
     //metodo comprobar conexion
-    public void testCon(){
+    public static void testCon(){
         if (con == null) {
-            System.out.println("No hay conexion");
+            view.frmTest.mensaje= "No hay conexion";
         } else {
-            System.out.println("Si hay conexion");
+            view.frmTest.mensaje= "Si hay conexion";
         }
     }
     

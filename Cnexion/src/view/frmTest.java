@@ -13,11 +13,9 @@ import javax.swing.JButton;
 
 public class frmTest extends JDialog {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	private JPanel contentPane;
+	public static String mensaje;
+
+	private JPanel contentPane = new JPanel();
 
 	
 	public static void abrirTest(){
@@ -28,14 +26,13 @@ public class frmTest extends JDialog {
 	
 	public frmTest() {
 		setResizable(false);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 174, 135);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
-		JLabel lblMensaje = new JLabel("New label");
+		JLabel lblMensaje = new JLabel(mensaje);
 		lblMensaje.setHorizontalAlignment(SwingConstants.CENTER);
 		contentPane.add(lblMensaje, BorderLayout.CENTER);
 		

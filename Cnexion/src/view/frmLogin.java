@@ -30,33 +30,37 @@ public class frmLogin extends JDialog {
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
-		{
+		
 			JButton btnAceptar = new JButton("Aceptar");
 			btnAceptar.setBounds(68, 120, 85, 15);
 			contentPanel.add(btnAceptar);
-		}
-		{
+		
+		
 			JLabel lblUsuario = new JLabel("Usuario:");
 			lblUsuario.setBounds(24, 36, 77, 14);
 			contentPanel.add(lblUsuario);
-		}
-		{
+		
+		
 			JLabel lblContrasenia = new JLabel("Contrase\u00F1a:");
 			lblContrasenia.setBounds(24, 61, 77, 14);
 			contentPanel.add(lblContrasenia);
-		}
-		{
+		
+		
 			txtUsuario = new JTextField();
 			txtUsuario.setBounds(111, 35, 77, 15);
 			contentPanel.add(txtUsuario);
 			txtUsuario.setColumns(10);
-		}
-		{
+		
+		
 			txtContrasenia = new JTextField();
 			txtContrasenia.setColumns(10);
 			txtContrasenia.setBounds(111, 60, 77, 15);
 			contentPanel.add(txtContrasenia);
-		}
+
+			btnAceptar.addActionListener(l -> {
+				controller.Controlador.createConexion();
+			});
+		
 	}
 
 	
