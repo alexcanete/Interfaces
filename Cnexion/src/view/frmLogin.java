@@ -13,8 +13,8 @@ import javax.swing.JTextField;
 public class frmLogin extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
-	private JTextField textField;
-	private JTextField textField_1;
+	public static JTextField txtUsuario;
+	public static JTextField txtContrasenia;
 	
 	
 	public static void abrirLogin(){
@@ -32,7 +32,7 @@ public class frmLogin extends JDialog {
 		contentPanel.setLayout(null);
 		{
 			JButton btnAceptar = new JButton("Aceptar");
-			btnAceptar.setBounds(74, 120, 77, 15);
+			btnAceptar.setBounds(68, 120, 85, 15);
 			contentPanel.add(btnAceptar);
 		}
 		{
@@ -46,17 +46,20 @@ public class frmLogin extends JDialog {
 			contentPanel.add(lblContrasenia);
 		}
 		{
-			textField = new JTextField();
-			textField.setBounds(111, 35, 77, 15);
-			contentPanel.add(textField);
-			textField.setColumns(10);
+			txtUsuario = new JTextField();
+			txtUsuario.setBounds(111, 35, 77, 15);
+			contentPanel.add(txtUsuario);
+			txtUsuario.setColumns(10);
 		}
 		{
-			textField_1 = new JTextField();
-			textField_1.setColumns(10);
-			textField_1.setBounds(111, 60, 77, 15);
-			contentPanel.add(textField_1);
+			txtContrasenia = new JTextField();
+			txtContrasenia.setColumns(10);
+			txtContrasenia.setBounds(111, 60, 77, 15);
+			contentPanel.add(txtContrasenia);
 		}
 	}
 
+	
+
+	
 }

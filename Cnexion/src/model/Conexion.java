@@ -1,49 +1,50 @@
 package model;
 
 public class Conexion {
-	private String usuario;
-	private String contrasena;
-	private String host;
-	private String puerto;
-	private String baseDatos;
+	public static String Puerto = null;
+	public static String Usuario;
+	public static String contrasena;
+	public static String host;
+	public static String puerto;
+	public static String baseDatos;
 	
-	public Conexion(String usuario, String contrasena, String host, String puerto, String baseDatos) {
-		this.usuario = usuario;
-		this.contrasena = contrasena;
-		this.host = host;
-		this.puerto = puerto;
-		this.baseDatos = baseDatos;
+	public Conexion(String Usuario, String contrasena, String host, String puerto, String baseDatos) {
+		Conexion.Usuario = Usuario;
+		Conexion.contrasena = contrasena;
+		Conexion.host = host;
+		Conexion.puerto = puerto;
+		Conexion.baseDatos = baseDatos;
 	}
 	
 	public String getUsuario() {
-		return usuario;
+		return Usuario;
 	}
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
+	public static void setUsuario(String Usuario) {
+		Conexion.Usuario = Usuario;
 	}
-	public String getContrasena() {
+	public String getcontrasena() {
 		return contrasena;
 	}
-	public void setContrasena(String contrasena) {
-		this.contrasena = contrasena;
+	public static void setcontrasena(String contrasena) {
+		Conexion.contrasena = contrasena;
 	}
-	public String getHost() {
+	public String gethost() {
 		return host;
 	}
-	public void setHost(String host) {
-		this.host = host;
+	public static void sethost(String host) {
+		Conexion.host = host;
 	}
-	public String getPuerto() {
+	public String getpuerto() {
 		return puerto;
 	}
-	public void setPuerto(String puerto) {
-		this.puerto = puerto;
+	public static void setpuerto(String puerto) {
+		Conexion.puerto = puerto;
 	}
 	public String getBaseDatos() {
 		return baseDatos;
 	}
-	public void setBaseDatos(String baseDatos) {
-		this.baseDatos = baseDatos;
+	public static void setBaseDatos(String baseDatos) {
+		Conexion.baseDatos = baseDatos;
 	}
 	
 

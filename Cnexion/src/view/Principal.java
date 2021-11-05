@@ -62,12 +62,19 @@ public class Principal extends JFrame {
 
 		});
 
+		mntmLogin.addActionListener(e -> {
+			frmLogin.abrirLogin();
+		});
 		
-
-
-
+		mntmTest.addActionListener(l -> {
+			frmTest.abrirTest();
+		});
 		
 			
+			
 	}
+
+	
+
 
 }
