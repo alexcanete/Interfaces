@@ -14,6 +14,9 @@ import javax.swing.JLabel;
 import java.awt.List;
 import javax.swing.JRadioButton;
 import javax.swing.JRadioButtonMenuItem;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
 
 public class Fuentes extends JDialog {
 
@@ -34,7 +37,7 @@ public class Fuentes extends JDialog {
 	 * Create the dialog.
 	 */
 	public Fuentes() {
-		setBounds(100, 100, 335, 242);
+		setBounds(100, 100, 305, 304);
 		getContentPane().setLayout(null);
 		
 		JLabel lblFuente = new JLabel("Fuente");
@@ -59,16 +62,32 @@ public class Fuentes extends JDialog {
 		
 		JPanel pEstilo = new JPanel();
 		CheckboxGroup grpEstilo = new CheckboxGroup();
+		pEstilo.setLayout(null);
 		
 		Checkbox opcNormal = new Checkbox("Normal", true, grpEstilo);
-		Checkbox opcNegrita = new Checkbox("Negrita", true, grpEstilo);
-		Checkbox opcCursiva = new Checkbox("Cursiva", true, grpEstilo);
-		
+		opcNormal.setBounds(0, 0, 52, 22);
 		pEstilo.add(opcNormal);
+		Checkbox opcNegrita = new Checkbox("Negrita", true, grpEstilo);
+		opcNegrita.setBounds(-1, 40, 53, 22);
 		pEstilo.add(opcNegrita);
+		Checkbox opcCursiva = new Checkbox("Cursiva", true, grpEstilo);
+		opcCursiva.setBounds(0, 78, 56, 22);
 		pEstilo.add(opcCursiva);
-		add(pEstilo);
-		pEstilo.setBounds(200,100,200,100);
+		getContentPane().add(pEstilo);
+		pEstilo.setBounds(195,51,64,100);
+		
+		JLabel lblPrueba = new JLabel("Texto de prueba");
+		lblPrueba.setHorizontalAlignment(SwingConstants.CENTER);
+		lblPrueba.setBounds(55, 163, 171, 52);
+		getContentPane().add(lblPrueba);
+		
+		JButton btnNewButton = new JButton("New button");
+		btnNewButton.setBounds(38, 226, 89, 23);
+		getContentPane().add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("New button");
+		btnNewButton_1.setBounds(171, 226, 89, 23);
+		getContentPane().add(btnNewButton_1);
 		
 
 	}
