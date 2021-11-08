@@ -2,26 +2,45 @@ package unico;
 
 import java.nio.Buffer;
 
-public class Cliente extends Thread{
+public class Cliente{
 
-    private unico.Buffer almacen;
+    private String sNombre;
+    private int[] iCompra;
     private int dormir;
 
-    public Cliente(unico.Buffer almacen, int dormir){
-        this.almacen = almacen;
+    public Cliente(String sNombre,int[] iCompra , int dormir){
+        setsNombre(sNombre);
+        setiCompra(iCompra);
+        setDormir(dormir);
+    }
+
+    
+    public int getDormir() {
+        return dormir;
+    }
+
+    public void setDormir(int dormir) {
         this.dormir = dormir;
     }
 
-    public void run(){
-       int valor = 0;
-       for (int i = 0; i < 10; i++){
-           valor = almacen.get();
-           System.out.println("Cliente saca: " + valor);
-           try{
-              sleep(dormir);
-           }catch(InterruptedException e){
-               e.printStackTrace();
-           }
-       }
+    //getiCompra
+    public int[] getiCompra(){
+        return iCompra;
     }
+   
+    public void setiCompra(int[] iCompra){
+        this.iCompra = iCompra;
+    }
+
+
+    public String getsNombre() {
+        return sNombre;
+    }
+
+
+    public void setsNombre(String sNombre) {
+        this.sNombre = sNombre;
+    }
+
+    
 }
