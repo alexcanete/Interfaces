@@ -1,10 +1,8 @@
 package controller;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 
 import model.Conexion;
-
 public class Controlador {
 
     public static Object con;
@@ -56,6 +54,6 @@ public class Controlador {
             view.frmTest.mensaje= "Si hay conexion";
         }
     }
-    
+
     
 }

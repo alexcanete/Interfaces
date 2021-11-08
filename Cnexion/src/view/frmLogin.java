@@ -59,11 +59,9 @@ public class frmLogin extends JDialog {
 
 			btnAceptar.addActionListener(l -> {
 				controller.Controlador.createConexion();
-			});
+				frmLogin frame = new frmLogin();
+				frame.setVisible(false);			});
 		
 	}
 
-	
-
-	
 }

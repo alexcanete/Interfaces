@@ -5,7 +5,7 @@ public class Principal {
     public static void main(String[] args) {
        
         final int tiempoSleep= 1000;
-        final int[] objetosLista = {1,4,9};
+        final int[] objetosLista = {1,4,9}; 
         final int[] objetosLista1 = {3,9,2};
         final int[] objetosLista2 = {1,6,7};
 

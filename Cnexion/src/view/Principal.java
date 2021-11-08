@@ -70,12 +70,13 @@ public class Principal extends JFrame {
 			controller.Controlador.testCon();
 			frmTest.abrirTest();
 		});
+
+		
+
+
+
 		
 			
-			
 	}
-
-	
-
 
 }
