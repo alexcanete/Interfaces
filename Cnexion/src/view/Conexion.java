@@ -61,6 +61,8 @@ public class Conexion extends JDialog {
 		JButton btnAceptar = new JButton("Aceptar");
 		btnAceptar.setBounds(66, 105, 79, 14);
 		contentPane.add(btnAceptar);
+
+		txtHost.getText() = controlador.Controlador.host;
 	}
 
 
