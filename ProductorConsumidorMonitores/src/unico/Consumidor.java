@@ -12,7 +12,7 @@ public class Consumidor extends Thread{
 
     public void run(){
         int valor =0;
-        for (int i=0; i<10; i++){
+        for (int i=1; i<10; i++){
             valor = almacen.get();
             System.out.println("El consumidor saca el elemento: " + valor + " del almacen");
             try{

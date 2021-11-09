@@ -2,7 +2,7 @@ package unico;
 
 public class Principal {
     public static void main(String[] args) {
-        final int dorirProductor = 1000, dorirConsumidor = 1000;
+        final int dorirProductor = 1000, dorirConsumidor = 2000;
 
         Buffer almacen = new Buffer();
         Productor productor = new Productor(almacen, dorirProductor);
@@ -12,4 +12,6 @@ public class Principal {
         consumidor.start();
     }
 
+    
+    
 }
