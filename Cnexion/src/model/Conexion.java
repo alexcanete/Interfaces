@@ -1,19 +1,20 @@
 package model;
 
 public class Conexion {
-	public static String Puerto = null;
 	public static String Usuario;
 	public static String contrasena;
 	public static String host;
 	public static String puerto;
 	public static String baseDatos;
+	public static String Query;
 	
-	public Conexion(String Usuario, String contrasena, String host, String puerto, String baseDatos) {
+	public Conexion(String Usuario, String contrasena, String host, String puerto, String baseDatos, String Query) {
 		Conexion.Usuario = Usuario;
 		Conexion.contrasena = contrasena;
 		Conexion.host = host;
 		Conexion.puerto = puerto;
 		Conexion.baseDatos = baseDatos;
+		Conexion.Query = Query;
 	}
 	
 	public String getUsuario() {
@@ -45,6 +46,12 @@ public class Conexion {
 	}
 	public static void setBaseDatos(String baseDatos) {
 		Conexion.baseDatos = baseDatos;
+	}
+	public String getQuery() {
+		return Query;
+	}
+	public static void setQuery(String Query) {
+		Conexion.Query = Query;
 	}
 	
 

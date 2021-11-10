@@ -16,15 +16,11 @@ public class frmTest extends JDialog {
 	public static String mensaje;
 
 	private JPanel contentPane = new JPanel();
-
-	
-	public static void abrirTest(){
-		frmTest frame = new frmTest();
-		frame.setVisible(true);
-	}
+	private frmTest frmTest;
 
 	
 	public frmTest() {
+		frmTest = this;
 		setResizable(false);
 		setBounds(100, 100, 174, 135);
 		contentPane = new JPanel();
@@ -42,8 +38,11 @@ public class frmTest extends JDialog {
 		JButton btnAceptar = new JButton("Aceptar");
 		panel.add(btnAceptar);
 
+
+		setVisible(true);
+
 		btnAceptar.addActionListener(l -> {
-			System.exit(0);
+			frmTest.dispose();
 		});
 	}
 

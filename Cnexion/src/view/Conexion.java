@@ -17,13 +17,11 @@ public class Conexion extends JDialog {
 	public static JTextField txtPuerto;
 	public static JTextField txtNombre;
 
+	Conexion conexion;
 	
-	public static void abrirConexion(){
-		Conexion frame = new Conexion();
-		frame.setVisible(true);
-	}
 
 	public Conexion() {
+		conexion=this;
 		setResizable(false);
 		setBounds(100, 100, 221, 169);
 		contentPane = new JPanel();
@@ -47,20 +45,39 @@ public class Conexion extends JDialog {
 		txtHost.setBounds(93, 23, 79, 14);
 		contentPane.add(txtHost);
 		txtHost.setColumns(10);
+
 		
 		txtPuerto = new JTextField();
 		txtPuerto.setColumns(10);
 		txtPuerto.setBounds(93, 48, 79, 14);
 		contentPane.add(txtPuerto);
+
 		
 		txtNombre = new JTextField();
 		txtNombre.setColumns(10);
 		txtNombre.setBounds(93, 73, 79, 14);
 		contentPane.add(txtNombre);
+
 		
 		JButton btnAceptar = new JButton("Aceptar");
 		btnAceptar.setBounds(66, 105, 79, 14);
 		contentPane.add(btnAceptar);
+
+
+		
+
+
+
+		setVisible(true);
+
+		//pulsar boton aceptar
+		btnAceptar.addActionListener(l -> {
+
+			controller.Controlador.createConexion();
+		
+			
+			conexion.dispose();
+		});
 	}
 
 

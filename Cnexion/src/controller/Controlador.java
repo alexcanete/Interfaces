@@ -1,11 +1,14 @@
 package controller;
 import java.sql.Connection;
-import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.sql.Statement;
 
-import model.Conexion;
 public class Controlador {
 
-    public static Object con;
+    public static Connection con;
+    public static String mostrar;
     public static void createConexion(){
         String dbHost = view.Conexion.txtHost.getText() + "";
         String dbPuerto = view.Conexion.txtPuerto.getText() + "";
@@ -13,47 +16,52 @@ public class Controlador {
         model.Conexion.sethost(dbHost);
         model.Conexion.setpuerto(dbPuerto);
         model.Conexion.setBaseDatos(dbNombre);
+        dbms.DataBase.conectar();
+
     }
-    public void createLogin(){
+    public static void createLogin(){
         String dbUsuario = view.frmLogin.txtUsuario.getText() + "";
         String dbcontrasena = view.frmLogin.txtContrasenia.getText() + "";
         model.Conexion.setUsuario(dbUsuario);
         model.Conexion.setcontrasena(dbcontrasena);
+        dbms.DataBase.conectar();
 
 
     }
 
-    //conectar a db
-    public void conectar(){
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Object con = DriverManager.getConnection("jdbc:mysql://" + Conexion.host + ":" + Conexion.Puerto + "/" + Conexion.baseDatos, Conexion.Usuario, Conexion.contrasena);
-            Object st = ((Connection) con).createStatement();
-            System.out.println("Conexion exitosa");
-        } catch (Exception e) {
-            System.out.println("Error al conectar");
+    public static void executeQuery() throws SQLException{
+		String Query = view.Principal.txtQuery.getText() + "";
+        model.Conexion.setQuery(Query);
+
+    
+            //mandar query a la base de datos
+        Statement miOrden = dbms.DataBase.getCon().createStatement();
+        miOrden.execute(Query);
+
+        ResultSet resultado = miOrden.getResultSet();
+
+        ResultSetMetaData info = resultado.getMetaData();
+
+        // obtener la tabla y guardar en mostrar
+        int numCampos = info.getColumnCount();
+        for(int iContador = 1; iContador <= numCampos; iContador++) {
+            System.out.print(info.getColumnName(iContador) + "\n"); 
         }
-    }
-    //cerrar db
-    public void cerrar(){
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://" + Conexion.host + ":" + Conexion.Puerto + "/" + Conexion.baseDatos, Conexion.Usuario, Conexion.contrasena);
-            Object st = ((Connection) con).createStatement();
-            System.out.println("Conexion cerrada");
-        } catch (Exception e) {
-            System.out.println("Error al cerrar");
-        }
-    }
+            System.out.println(); 
+            while(resultado.next()) {
 
-    //metodo comprobar conexion
-    public static void testCon(){
-        if (con == null) {
-            view.frmTest.mensaje= "No hay conexion";
-        } else {
-            view.frmTest.mensaje= "Si hay conexion";
-        }
-    }
+      
+            for(int iContador = 1; iContador <= numCampos; iContador++) {
+              mostrar+= (resultado.getString(iContador) + "\t"); }
+            }
+          
 
+
+        //mostrar resultado en el textview
+        view.Principal.txtResultado.setText(mostrar);        
+	}
+  
+        
+        
     
 }

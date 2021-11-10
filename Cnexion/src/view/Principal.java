@@ -2,6 +2,7 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.sql.SQLException;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -10,6 +11,7 @@ import javax.swing.border.EmptyBorder;
 public class Principal extends JFrame {
 
 	private JPanel contentPane;
+	public static JTextArea txtQuery;
 
 	/**
 	 * Launch the application.
@@ -30,8 +32,12 @@ public class Principal extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+
+	public static JTextArea txtResultado;
 	public Principal() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		
 		setBounds(100, 100, 450, 300);
 		
 		JMenuBar menuBar = new JMenuBar();
@@ -55,24 +61,57 @@ public class Principal extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		
+		JPanel panel = new JPanel();
+		contentPane.add(panel, BorderLayout.NORTH);
+		panel.setLayout(new BorderLayout(0, 0));
+		
+		txtQuery = new JTextArea();
+		txtQuery.setRows(3);
+		panel.add(txtQuery, BorderLayout.CENTER);
+		
+		JButton btnEjecutar = new JButton("Ejecutar");
+		panel.add(btnEjecutar, BorderLayout.EAST);
+		
+		JSeparator separator_1 = new JSeparator();
+		panel.add(separator_1, BorderLayout.SOUTH);
+		
+		JSeparator separator_2 = new JSeparator();
+		panel.add(separator_2, BorderLayout.NORTH);
+		
+		JSeparator separator_3 = new JSeparator();
+		panel.add(separator_3, BorderLayout.WEST);
+		
+		txtResultado = new JTextArea();
+		txtResultado.setEditable(false);
+		contentPane.add(txtResultado, BorderLayout.CENTER);
 
 		
 		mntmConex.addActionListener(e -> {
-			Conexion.abrirConexion();
+			new Conexion();
 
 		});
 
 		mntmLogin.addActionListener(e -> {
-			frmLogin.abrirLogin();
+			new frmLogin();
 		});
 		
-		mntmTest.addActionListener(l -> {
-			controller.Controlador.testCon();
-			frmTest.abrirTest();
+		mntmTest.addActionListener(e-> {
+			dbms.DataBase.testCon();
+			new frmTest();
+		});
+
+		btnEjecutar.addActionListener(e -> {
+			try {
+				controller.Controlador.executeQuery();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+				System.err.println("Error al ejecutar la query");
+			}
 		});
 
 		
-
 
 
 		

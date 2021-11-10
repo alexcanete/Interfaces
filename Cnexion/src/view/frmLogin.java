@@ -16,15 +16,13 @@ public class frmLogin extends JDialog {
 	public static JTextField txtUsuario;
 	public static JTextField txtContrasenia;
 	
+	private frmLogin frmLogin;
 	
-	public static void abrirLogin(){
-		frmLogin frame = new frmLogin();
-		frame.setVisible(true);
-	}
 	
 
 
 	public frmLogin() {
+		frmLogin=this;
 		setBounds(100, 100, 231, 185);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -50,6 +48,7 @@ public class frmLogin extends JDialog {
 			txtUsuario.setBounds(111, 35, 77, 15);
 			contentPanel.add(txtUsuario);
 			txtUsuario.setColumns(10);
+
 		
 		
 			txtContrasenia = new JTextField();
@@ -57,10 +56,16 @@ public class frmLogin extends JDialog {
 			txtContrasenia.setBounds(111, 60, 77, 15);
 			contentPanel.add(txtContrasenia);
 
+	
+			setVisible(true);
+
+
 			btnAceptar.addActionListener(l -> {
-				controller.Controlador.createConexion();
-				frmLogin frame = new frmLogin();
-				frame.setVisible(false);			});
+				controller.Controlador.createLogin();
+				
+
+				frmLogin.dispose();
+			});
 		
 	}
 
