@@ -5,6 +5,8 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import view.Principal;
+
 public class Controlador {
 
     public static Connection con;
@@ -41,18 +43,23 @@ public class Controlador {
         ResultSet resultado = miOrden.getResultSet();
 
         ResultSetMetaData info = resultado.getMetaData();
+        Principal.txtResultado.setText("");
+        mostrar = "";
 
         // obtener la tabla y guardar en mostrar
         int numCampos = info.getColumnCount();
         for(int iContador = 1; iContador <= numCampos; iContador++) {
-            System.out.print(info.getColumnName(iContador) + "\n"); 
+            mostrar+=(info.getColumnName(iContador) + "    "); 
         }
-            System.out.println(); 
+            mostrar+="\n";
             while(resultado.next()) {
 
       
-            for(int iContador = 1; iContador <= numCampos; iContador++) {
-              mostrar+= (resultado.getString(iContador) + "\t"); }
+                for(int iContador = 1; iContador <= numCampos; iContador++) {
+                mostrar+= (resultado.getString(iContador) + "    "); 
+                }
+                mostrar+="\n";
+
             }
           
 
