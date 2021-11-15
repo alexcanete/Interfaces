@@ -13,7 +13,7 @@ public class Mesa {
             this.ingr= ingr;
             ingrEnMesa = true;
             System.out.println("El estanquero no pone el ingrediente: "+ingr);
-            notifyAll();
+            notify();
         }
     }
     public synchronized void quieroFumar (int id) throws InterruptedException {
@@ -28,6 +28,6 @@ public class Mesa {
     public synchronized void finFumar (int id) {
         fumando = false;
         System.out.println("Fumador " + id + " termina de fumar");
-        notifyAll();
+        notify();
     }
 }

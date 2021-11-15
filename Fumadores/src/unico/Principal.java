@@ -10,11 +10,13 @@ public class Principal {
             fumador[i] = new Fumador(i, mesa);
         }
 
+
         estanquero.start();
 
         for (int i = 0; i < fumador.length; i++) {
             fumador[i].start();
         }
+        
     }
 
 }
