@@ -12,10 +12,10 @@ public class Barbero extends Thread{
 		while (true) {
 			try {
 				barberia.esperarCliente();
-				// Cortar pelo
+				
 				Thread.sleep(5000);
 				barberia.acabarCorte();
-				// Decansa un poco
+				
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
 			}

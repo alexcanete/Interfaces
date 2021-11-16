@@ -15,22 +15,21 @@ public class Barberia {
 	public synchronized boolean entrar(int clienteId)
 			throws InterruptedException {
 		if (nSillasEsperaOcupadas == nSillasEspera) {
-			// Si no hay sillas libres, me voy sin cortar el pelo
+
 			System.out.println("El cliente " + clienteId + " se va sin cortarse el pelo");
 			return false;
 		} else {
-			// Me quedo esperando si la silla del barbero está
-			// ocupada
+		
 			nSillasEsperaOcupadas++;
 			System.out.println("El cliente " + clienteId + " se sienta en la silla de espera");
 			while (sillaBarberoOcupada) {
 				wait();
 			}
 
-			// Desocupo la silla de espera
+			
 			nSillasEsperaOcupadas--;
 
-			// Me siento en la silla del barbero
+			
 			sillaBarberoOcupada = true;
 			finCorte = false;
 

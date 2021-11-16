@@ -17,6 +17,13 @@ public class Coche {
         this.potencia = potencia;
     }
 
+    public Coche(Integer idCoche, String marca, String modelo, Integer potencia) {
+        this.idCoche = idCoche;
+        this.marca = marca;
+        this.modelo = modelo;
+        this.potencia = potencia;
+    }
+
     public Integer getIdCoche() {
         return idCoche;
     }
