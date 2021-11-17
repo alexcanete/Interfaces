@@ -1,16 +1,31 @@
 package model;
 
+import javax.persistence.*;
+
+
+@Entity
+@Table(name = "casa")   
 public class Casa {
 
+    @Id
+    @GeneratedValue(generator = "seqCasa")
+    @SequenceGenerator(name = "seqCasa", sequenceName = "SEQ_CASA", allocationSize = 1)
+    @Column(name = "ID_CASA")
     private int id_casa;
+
+    @Column(name = "CALLE")
     private String calle;
-    private Integer numero;
+
+    @Column(name = "NUMERO")
+    private int numero;
+
+    @Column(name = "SUPERFICIE")
     private Double superficie;
 
     public Casa() {
     }
 
-    public Casa(String calle, Integer numero, Double superficie) {
+    public Casa(String calle, int numero, Double superficie) {
         this.calle = calle;
         this.numero = numero;
         this.superficie = superficie;
@@ -32,11 +47,11 @@ public class Casa {
         this.calle = calle;
     }
 
-    public Integer getNumero() {
+    public int getNumero() {
         return numero;
     }
 
-    public void setNumero(Integer numero) {
+    public void setNumero(int numero) {
         this.numero = numero;
     }
 

@@ -1,4 +1,5 @@
 package view;
+
 import java.util.List;
 
 import org.hibernate.Session;
@@ -17,22 +18,22 @@ public class FrmPrincipal {
 
 			Transaction tx = session.beginTransaction();
 
-			//Coche c	 = new Coche("Audi", "A3", 1995);
+			Casa c = new Casa("falsacalle2", 523, 432.78);
 			//session.delete(c);
 			//session.dalete(c);
 			//session.update(c);
 			//session.saveOrUpdate(c);
 			//session.byId(Coche.class).getReference(c.getId());
-			//session.save(c);
+			session.save(c);
 			
-			List<Casa> lista = session.createQuery("from Coche").list();
 			
-			lista.forEach(c -> System.out.println(c));
-
 			
-
-
-
+			List<Casa> casas = session.createQuery("from Casa").list();
+			
+			for(Casa c1 : casas) {
+				System.out.println(c1.getCalle() + " " + c1.getNumero() + " " + c1.getSuperficie());
+			}
+		
 			System.out.println("Casa guardada");
 			tx.commit();
 

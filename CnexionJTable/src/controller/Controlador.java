@@ -20,7 +20,7 @@ public class Controlador {
         model.Conexion.sethost(dbHost);
         model.Conexion.setpuerto(dbPuerto);
         model.Conexion.setBaseDatos(dbNombre);
-        dbms.DataBase.conectar();
+        
 
     }
     public static void createLogin(){

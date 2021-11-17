@@ -7,5 +7,16 @@
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="lib/ojdbc8.jar"/>
+	<classpathentry kind="lib" path="lib/jdom-2.0.6/jdom-2.0.6.jar"/>
+	<classpathentry kind="lib" path="lib/jdom-2.0.6/jdom-2.0.6-contrib.jar"/>
+	<classpathentry kind="lib" path="lib/jdom-2.0.6/jdom-2.0.6-javadoc.jar"/>
+	<classpathentry kind="lib" path="lib/jdom-2.0.6/jdom-2.0.6-junit.jar"/>
+	<classpathentry kind="lib" path="lib/jdom-2.0.6/jdom-2.0.6-sources.jar"/>
+	<classpathentry kind="lib" path="lib/jdom-2.0.6/lib/jaxen-1.1.6.jar"/>
+	<classpathentry kind="lib" path="lib/jdom-2.0.6/lib/jaxen-1.1.6.LICENSE.txt"/>
+	<classpathentry kind="lib" path="lib/jdom-2.0.6/lib/xerces.2.11.LICENSE"/>
+	<classpathentry kind="lib" path="lib/jdom-2.0.6/lib/xerces.2.11.NOTICE"/>
+	<classpathentry kind="lib" path="lib/jdom-2.0.6/lib/xercesImpl.jar"/>
+	<classpathentry kind="lib" path="lib/jdom-2.0.6/lib/xml-apis.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

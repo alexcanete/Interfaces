@@ -5,14 +5,14 @@
 >
 
 <hibernate-mapping>
-    <class name="model.Coche" table="Coche">
-        <id name="idCoche" column="ID_COCHE" type= "integer">
+    <class name="model.Casa" table="CASA">
+        <id name="id_casa" column="ID_CASA" type= "int">
             <generator class="sequence">
-                <param name="sequence_name">SEQ_COCHE</param>
+                <param name="sequence_name">SEQ_CASA</param>
             </generator>
         </id>
-        <property name="marca" column="MARCA" type="string" />
-        <property name="modelo" column="MODELO" type="string" />
-        <property name="potencia" column="POTENCIA" type="integer" />
+        <property name="calle" column="CALLE" type="string" />
+        <property name="numero" column="NUMERO" type="int" />
+        <property name="superficie" column="SUPERFICIE" type="double" />
     </class>
 </hibernate-mapping>

@@ -1,12 +1,7 @@
 package model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
+import javax.persistence.*;
+
 
 @Entity
 @Table(name = "coches")
@@ -17,11 +12,13 @@ public class Coche {
     @SequenceGenerator(name = "miSecuencia", sequenceName = "SEQ_COCHE", allocationSize = 1)
     @Column(name = "ID_COCHE")
     private Integer idCoche;
-    @Column(name = "MARCA")
 
+    @Column(name = "MARCA")
     private String marca;
+
     @Column(name = "MODELO")
     private String modelo;
+
     @Column(name = "POTENCIA")
     private Integer potencia;
 

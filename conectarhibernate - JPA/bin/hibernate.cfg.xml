@@ -23,7 +23,6 @@
         <!-- Mapping Files -->
         <mapping resource="model.Coche"/>
 
-        
     </session-factory>
 </hibernate-configuration>
 
