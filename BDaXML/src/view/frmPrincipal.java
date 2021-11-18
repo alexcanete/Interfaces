@@ -4,7 +4,8 @@ public class frmPrincipal {
 	public static void main(String[] args) {
 		
 		try {
-			dbms.DataBase.conectar();
+
+			dbms.DataBase.conectarCasa();
 			if (dbms.DataBase.comprobarConexion()== true) {
 				System.out.println("Conexion correcta");
 			}

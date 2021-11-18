@@ -25,5 +25,7 @@ public class Fumador extends Thread{
             }  
         }
     }
+
+    
 }
 
