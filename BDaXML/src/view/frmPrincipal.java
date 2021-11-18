@@ -5,17 +5,12 @@ public class frmPrincipal {
 		
 		try {
 
-			dbms.DataBase.conectarCasa();
 			if (dbms.DataBase.comprobarConexion()== true) {
 				System.out.println("Conexion correcta");
 			}
-			dbms.DataBase.executeQuery("SELECT * FROM emp");
-		} catch (Exception e) {
+			dbms.DataBase.allDBToXML();
+				} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-
-
 	}
-
 }

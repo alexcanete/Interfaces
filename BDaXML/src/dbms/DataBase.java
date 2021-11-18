@@ -1,11 +1,25 @@
 package dbms;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+
+import org.w3c.dom.Attr;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
 
 
@@ -69,7 +83,7 @@ public class DataBase {
     //metodo comprobar conexion
     public static boolean comprobarConexion(){
         try {
-            conectarCasa();
+            conectar();
             desconectar();
             return true;
         } catch (Exception e) {
@@ -88,9 +102,9 @@ public class DataBase {
     }   
     
 
-    public static void executeQuery(String Query) throws Exception{
+    public static String executeQuery(String Query) throws Exception{
 
-        conectarCasa();
+        conectar();
             //mandar query a la base de datos
         Statement miOrden = dbms.DataBase.getConn().createStatement();
         miOrden.execute(Query);
@@ -103,6 +117,8 @@ public class DataBase {
         // obtener la tabla y guardar en mostrar
         int numCampos = info.getColumnCount();
         for(int iContador = 1; iContador <= numCampos; iContador++) {
+
+
             mostrar+=(info.getColumnName(iContador) + "    "); 
         }
             mostrar+="\n";
@@ -115,7 +131,56 @@ public class DataBase {
                 mostrar+="\n";
 
             }
-            System.out.println(mostrar);
+    return mostrar;
     
+    }
+
+
+    public static void dbToXml(String tableName, String fileName) throws Exception{
+    
+
+        Connection conn = dbms.DataBase.getConn();
+        String query = "SELECT * FROM "+ tableName;
+
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery(query);
+        DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+        Document doc = docBuilder.newDocument();
+        Element rootElement = doc.createElement(tableName);
+        rootElement.appendChild(doc.createTextNode(tableName));
+        doc.appendChild(rootElement);
+        rootElement.appendChild(doc.createTextNode("\n"));
+
+        while(rs.next()){
+            for(int i = 1; i <= rs.getMetaData().getColumnCount(); i++){
+                Element column = doc.createElement(rs.getMetaData().getColumnName(i));
+                column.appendChild(doc.createTextNode(rs.getString(i)));
+                rootElement.appendChild(column);
+                rootElement.appendChild(doc.createTextNode("\n"));
+
+
+            }
+            rootElement.appendChild(doc.createTextNode("\n"));
+
+        TransformerFactory transformerFactory = TransformerFactory.newInstance();
+        Transformer transformer = transformerFactory.newTransformer();
+        DOMSource source = new DOMSource(doc);
+        StreamResult result = new StreamResult(new File(fileName));
+        transformer.transform(source, result);
+
+        }
+    
+    }
+    //obtener nombre tablas
+    public static void allDBToXML() throws Exception{
+        conectar();
+        Statement miOrden = dbms.DataBase.getConn().createStatement();
+        String query = "SELECT table_name FROM user_tables";
+        ResultSet resultado = miOrden.executeQuery(query);
+        while(resultado.next()){
+            dbToXml(resultado.getString(1), resultado.getString(1)+".xml");
+        }
+        desconectar();
     }
 }
