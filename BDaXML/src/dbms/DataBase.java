@@ -83,7 +83,7 @@ public class DataBase {
     //metodo comprobar conexion
     public static boolean comprobarConexion(){
         try {
-            conectar();
+            conectarCasa();
             desconectar();
             return true;
         } catch (Exception e) {
@@ -104,7 +104,7 @@ public class DataBase {
 
     public static String executeQuery(String Query) throws Exception{
 
-        conectar();
+        conectarCasa();
             //mandar query a la base de datos
         Statement miOrden = dbms.DataBase.getConn().createStatement();
         miOrden.execute(Query);
@@ -174,7 +174,8 @@ public class DataBase {
     }
     //obtener nombre tablas
     public static void allDBToXML() throws Exception{
-        conectar();
+        conectarCasa();
+        System.out.println("llega");
         Statement miOrden = dbms.DataBase.getConn().createStatement();
         String query = "SELECT table_name FROM user_tables";
         ResultSet resultado = miOrden.executeQuery(query);
