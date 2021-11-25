@@ -21,6 +21,7 @@ public class Controlador {
         dbms.DataBase.conectar();
 
     }
+        
     public static void createLogin(){
         String dbUsuario = view.frmLogin.txtUsuario.getText() + "";
         String dbcontrasena = view.frmLogin.txtContrasenia.getText() + "";
@@ -67,8 +68,4 @@ public class Controlador {
         //mostrar resultado en el textview
         view.Principal.txtResultado.setText(mostrar);        
 	}
-  
-        
-        
-    
 }
