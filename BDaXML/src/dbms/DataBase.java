@@ -52,6 +52,26 @@ public class DataBase {
 
     public static void conectarCasa() throws Exception {
 		
+		String dbHOST = "-";
+		String dbPORT = "3306";
+		String dbNAME = "337965";
+		String dbUSER = "337965";
+		String dbPASS = "337965";
+		
+		
+		String dbURL = "jdbc:oracle:thin:@"+dbHOST+":"+dbPORT+":"+dbNAME;
+		System.out.println(dbURL);
+		
+		//Cargar el driver de memoria
+		
+		Class.forName("oracle.jdbc.driver.OracleDriver").newInstance();	
+		//Establecer conexiones
+		
+		conn = DriverManager.getConnection(dbURL, dbUSER, dbPASS);
+    }
+
+    public static void conectarCasa2() throws Exception {
+		
 		String dbHOST = "localhost";
 		String dbPORT = "1521";
 		String dbNAME = "xe";
