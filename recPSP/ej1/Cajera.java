@@ -13,14 +13,14 @@ public class Cajera extends Thread{
     }
 
     @Override
-    public void run() {
+    public void run() { //metodo run
         int iSuma=0;
-       for (int i = 0; i < clien.getiCompra().length; i++) {
+       for (int i = 0; i < clien.getiCompra().length; i++) { //recorre el array
         System.out.println("La cajera "+getsNombre()+" ha pasado el producto "+i+" del cliente "+clien.getsNombre()+
         " y ha tardado "+clien.getiCompra()[i]);
-        iSuma+=clien.getiCompra()[i];
+        iSuma+=clien.getiCompra()[i]; //suma los valores del array
         try {
-            Thread.sleep(this.dormir);
+            Thread.sleep(this.dormir); //duerme
         } catch (InterruptedException ex) {
             System.out.println("Error en la cajera");
         }
@@ -30,6 +30,8 @@ public class Cajera extends Thread{
 
     }
 
+
+    //getter y setters
     public Cliente getClien() {
         return clien;
     }

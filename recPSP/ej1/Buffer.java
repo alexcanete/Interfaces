@@ -6,29 +6,30 @@ public class Buffer {
     private boolean disponible= false;
 
 
-    public synchronized int get() {
+    //
+    public synchronized int get() { //get
         while(disponible== false){
             try{
-                wait();
+                wait(); //espera
             }catch(InterruptedException e){
                 e.printStackTrace();
             }
         }
         disponible= false;
-        notify();
+        notify(); //notifica a los hilos que estan esperando
         return contenido;
     }
 
-    public synchronized void put(int value) {
-        while(disponible== true){
+    public synchronized void put(int value) { //put
+        while(disponible== true){//si esta disponible es false
             try{
-                wait();
+                wait(); //espera
             }catch(InterruptedException e){
                 e.printStackTrace();
             }
         }
         contenido= value;
         disponible= true;
-        notify();
+        notify(); //notifica a los que estan esperando
     }
 }

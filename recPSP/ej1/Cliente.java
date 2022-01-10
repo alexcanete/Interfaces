@@ -5,13 +5,14 @@ public class Cliente {
     private int[] iCompra;
     private int dormir;
 
+    //constructor
     public Cliente(String sNombre,int[] iCompra , int dormir){
         setsNombre(sNombre);
         setiCompra(iCompra);
         setDormir(dormir);
     }
 
-    
+    //getter y setters
     public int getDormir() {
         return dormir;
     }

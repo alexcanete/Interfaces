@@ -3,15 +3,18 @@ package controller;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
@@ -86,9 +89,9 @@ public class Controlador {
                 Element defunciones = doc.createElement("Defunciones");
                 root.appendChild(defunciones);
 
-                Attr attr = doc.createAttribute("sCcaa");
-                attr.setValue(d.getsCcaa());
-                defunciones.setAttributeNode(attr);
+                Attr sCcaa = doc.createAttribute("sCcaa");
+                sCcaa.setValue(d.getsCcaa());
+                defunciones.setAttributeNode(sCcaa);
 
                 Element tipo = doc.createElement("sTipoDeDato");
                 tipo.appendChild(doc.createTextNode(d.getsTipoDeDato()));
@@ -105,6 +108,8 @@ public class Controlador {
 			
 			TransformerFactory transformerFactory = TransformerFactory.newInstance();
 			Transformer transformer = transformerFactory.newTransformer();
+            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+            transformer.setOutputProperty("{http://xml.apache.org/xlst}indent-amount", "4");
 			DOMSource source = new DOMSource(doc);
 			StreamResult result = new StreamResult(ficheroXml);
 			transformer.transform(source, result);
@@ -145,10 +150,6 @@ public class Controlador {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-    }
-
-
-
-    
+    }   
 
 }
