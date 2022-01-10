@@ -82,6 +82,13 @@ public class Principal extends JFrame {
 		JButton btnGuardarCambio = new JButton("GUARDAR");
 		btnGuardarCambio.setBounds(169, 146, 101, 23);
 		contentPane.add(btnGuardarCambio);
+
+		//accion boton guardar
+		btnGuardarCambio.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.Controlador.guardarCambio(txtNombre.getText(), txtNumero.getText());
+			}
+		});
 		
 		JButton btnEditar = new JButton("EDITAR");
 		btnEditar.setBounds(169, 180, 101, 23);

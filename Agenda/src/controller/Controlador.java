@@ -57,6 +57,15 @@ public class Controlador {
 		return listaPersonas;
 		
 	}
+
+    public static void guardarCambio(String text, String text2) {
+		// TODO Auto-generated method stub
+		//guardar cambios
+
+		
+
+		
+    }
 	
 	
 	
