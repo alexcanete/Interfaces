@@ -1,17 +1,16 @@
 package view;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JMenuBar;
 import javax.swing.JMenu;
+import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JSeparator;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JSeparator;
 import javax.swing.JTable;
+import javax.swing.border.EmptyBorder;
 
 public class FrmPrincipal extends JFrame {
 
@@ -58,7 +57,7 @@ public class FrmPrincipal extends JFrame {
 		btnActualizar.addActionListener(e -> {
 			System.out.println("Actualizar");
 			try {
-				dbms.Database.conectarCasa();
+				dbms.Database.conectar();
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();

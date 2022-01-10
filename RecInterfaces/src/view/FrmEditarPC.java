@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.MouseInputAdapter;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -14,6 +15,8 @@ import javax.swing.JComboBox;
 import javax.swing.JSpinner;
 import java.awt.Font;
 import java.awt.List;
+import java.awt.event.MouseListener;
+
 import javax.swing.SwingConstants;
 
 public class FrmEditarPC extends JFrame {
@@ -28,7 +31,7 @@ public class FrmEditarPC extends JFrame {
 
 					
 				
-	public FrmEditarPC() {
+	public <MouseEvent> FrmEditarPC() {
 		setResizable(false);
 		FrmEditarPC = this;
 
@@ -81,7 +84,8 @@ public class FrmEditarPC extends JFrame {
 		lblHP.setOpaque(true);
 		lblHP.setBackground(java.awt.Color.RED);
 		contentPane.add(lblHP);
-		
+
+	
 		JLabel lblLn = new JLabel("LN");
 		lblLn.setHorizontalAlignment(SwingConstants.CENTER);
 		lblLn.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -106,11 +110,42 @@ public class FrmEditarPC extends JFrame {
 		lblAc.setBackground(java.awt.Color.YELLOW);
 		contentPane.add(lblAc);
 		
-		JLabel lblMarcaSeleccionada = new JLabel("HP");
+		JLabel lblMarcaSeleccionada = new JLabel("NULL");
 		lblMarcaSeleccionada.setHorizontalAlignment(SwingConstants.CENTER);
 		lblMarcaSeleccionada.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		lblMarcaSeleccionada.setBounds(247, 17, 30, 30);
 		contentPane.add(lblMarcaSeleccionada);
+
+		
+		//hacer click en Label
+		lblHP.addMouseListener(new MouseInputAdapter() {
+			public void mouseClicked(java.awt.event.MouseEvent evt) {
+				lblMarcaSeleccionada.setText("HP");
+				
+			}
+		});
+
+		lblLn.addMouseListener(new MouseInputAdapter() {
+			public void mouseClicked(java.awt.event.MouseEvent evt) {
+				lblMarcaSeleccionada.setText("LN");
+				
+			}
+		});
+
+		lblAs.addMouseListener(new MouseInputAdapter() {
+			public void mouseClicked(java.awt.event.MouseEvent evt) {
+				lblMarcaSeleccionada.setText("AS");
+				
+			}
+		});
+
+		lblAc.addMouseListener(new MouseInputAdapter() {
+			public void mouseClicked(java.awt.event.MouseEvent evt) {
+				lblMarcaSeleccionada.setText("AC");
+				
+			}
+		});
+
 		
 		textField = new JTextField();
 		textField.setColumns(10);
