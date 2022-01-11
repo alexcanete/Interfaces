@@ -1,11 +1,27 @@
 package model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "ORDENADORES")
 public class Pc {
-    
+  
+    @Id
+    @GeneratedValue(generator = "miSecuencia")
+    @SequenceGenerator(name = "miSecuencia", sequenceName = "SEQ_PC", allocationSize = 1)
+    @Column(name = "ID")
     int iId;
+
+    @Column(name = "MARCA")
     String sMarca;
-    String sModelo; 
+
+    @Column(name = "MODELO")
+    String sModelo;
+    
+    @Column(name = "RAM")
     String sRam;
+
+    
     double dPrecio;
 
     public Pc() {

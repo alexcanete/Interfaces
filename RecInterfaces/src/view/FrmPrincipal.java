@@ -57,7 +57,7 @@ public class FrmPrincipal extends JFrame {
 		btnActualizar.addActionListener(e -> {
 			System.out.println("Actualizar");
 			try {
-				dbms.Database.conectar();
+				dbms.Database.conectarCasa();
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -81,6 +81,7 @@ public class FrmPrincipal extends JFrame {
 		menPc.add(btnNuevo);
 
 		btnNuevo.addActionListener(e ->{
+			logic.Logic.insert();
 			FrmNuevoPC frmNuevo = new FrmNuevoPC();
 			frmNuevo.setVisible(true);
 		});
