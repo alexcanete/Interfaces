@@ -1,4 +1,4 @@
-package ej3;
+package ej4;
 public class Estudiante extends Thread{
     private Buffer mesa;
     private int dormir;
@@ -12,7 +12,7 @@ public class Estudiante extends Thread{
         int valor =0;
         for (int i=1; i<30; i++){
             valor = mesa.get();
-            System.out.println("Estudiante: " + valor + "coge la bandeja de la mesa");
+            System.out.println("Estudiante: " + valor + " coge la bandeja de la mesa");
             try{
                 sleep(dormir);
             }catch(InterruptedException e){

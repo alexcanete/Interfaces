@@ -3,32 +3,13 @@ package ej3;
 public class Buffer {
     
     private int contenido;
-    private boolean disponible= false;
 
-
-    public synchronized int get() {
-        while(disponible== false){
-            try{
-                wait();
-            }catch(InterruptedException e){
-                e.printStackTrace();
-            }
-        }
-        disponible= false;
-        notify();
+    public int get() {
         return contenido;
     }
 
-    public synchronized void put(int value) {
-        while(disponible== true){
-            try{
-                wait();
-            }catch(InterruptedException e){
-                e.printStackTrace();
-            }
-        }
+    public void put(int value) {
         contenido= value;
-        disponible= true;
-        notify();
     }
+    
 }

@@ -1,53 +1,26 @@
 package ej3;
 public class Cocinero extends Thread{
-    private Estudiante estudiante;
+    private Buffer mesa;
     private int dormir;
-
-    //contructor
-    public Cocinero(Estudiante estudiante, int dormir) {
-        this.estudiante = estudiante;
-        this.dormir = dormir;
+    
+    public Cocinero(Buffer mesa, int numero) {
+        this.mesa = mesa;
+        this.dormir = numero;
     }
 
-    public void run() { //metodo run
-        int iSuma=0;
-       for (int i = 0; i < clien.getiCompra().length; i++) { //recorre el array
-        System.out.println("La cajera "+getsNombre()+" ha pasado el producto "+i+" del cliente "+clien.getsNombre()+
-        " y ha tardado "+clien.getiCompra()[i]);
-        iSuma+=clien.getiCompra()[i]; //suma los valores del array
-        try {
-            Thread.sleep(this.dormir); //duerme
-        } catch (InterruptedException ex) {
-            System.out.println("Error en la cajera");
+    public void run() {
+        for (int i = 1; i < 30; i++) {
+            
+                mesa.put(i);
+                System.out.println("Cocinero pone bandeja sobre la mesa");
+                try {
+                    sleep(dormir);
+                } catch (InterruptedException e) {
+                    System.err.println("Error en Cocinero");
+                    e.printStackTrace();
+                }
+           
         }
-       } 
-       System.out.println("La cajera "+getsNombre()+" ha pasado la compra del cliente "+clien.getsNombre()+
-       " y ha tardado "+iSuma+" segundos en total");          
-
     }
-
-
-
-
-    // getter y setters
-    public Estudiante getEstudiante() {
-        return estudiante;
-    }
-
-    public void setEstudiante(Estudiante estudiante) {
-        this.estudiante = estudiante;
-    }
-
-    public int getDormir() {
-        return dormir;
-    }
-
-    public void setDormir(int dormir) {
-        this.dormir = dormir;
-    }
-
-    
-
-    
 }
 
