@@ -11,10 +11,11 @@ public class Estudiante extends Thread{
     public void run(){
         int valor =0;
         for (int i=1; i<30; i++){
-            valor = mesa.get();
-            System.out.println("Estudiante: " + valor + " coge la bandeja de la mesa");
+            
             try{
-                sleep(dormir);
+                valor = mesa.get(); //coge la bandeja de la mesa
+                System.out.println("Estudiante: " + valor + " coge la bandeja de la mesa");
+                sleep(dormir); //duerme 
             }catch(InterruptedException e){
                 System.err.println("Error en Estudiante");
             }

@@ -10,11 +10,11 @@ public class ej4 {
         //creamos la mesa
         Buffer mesa = new Buffer();
 
-        //crear Cliente
+        //crear Estudiante
         Estudiante estudiante = new Estudiante(mesa, tiempoSleepEs); //estudiante1
     
 
-        //crear cajera
+        //crear cocinero
         Cocinero cocinero = new Cocinero(mesa, tiempoSleepC); 
 
    

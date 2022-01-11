@@ -10,10 +10,11 @@ public class Cocinero extends Thread{
 
     public void run(){
         for (int i = 1; i < 30; i++) {            
-            mesa.put(i);
-            System.out.println("Cocinero pone bandeja sobre la mesa");
+           
             try{
-                sleep(dormir);
+                mesa.put(i);// pone la bandeja en la mesa
+                System.out.println("Cocinero pone bandeja sobre la mesa");
+                sleep(dormir);//duerme
             }catch(InterruptedException e){
                 System.err.println("Error en Cocinero");
                 e.printStackTrace();

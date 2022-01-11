@@ -5,8 +5,11 @@ public class Buffer {
     private int contenido;
     private boolean disponible = false;
 
+    //coge la bandeja
     public synchronized int get() {
-        while (!disponible == false) {
+
+        // si la mesa no esta disponible entra 
+        while (disponible == false) { // mientras la mesa esta ocupuda espera
             try {
                 wait();
             } catch (InterruptedException e) {
@@ -14,14 +17,16 @@ public class Buffer {
             }
            
         }
-        disponible = false;
-        notify();
-        return contenido;
+        disponible = false; //si llega aqí es porque la mesa esta disponible y la pone ocupada
+        notify(); //notifica a los estudiantes que pueden coger la bandeja
+        return contenido; //devuelve contenido de la mesa
     }
 
+
+    //pone la bandeja 
     public synchronized void put(int value) {
 
-        while (disponible == true) {
+        while (disponible == true) {// mientras la mesa esta disponible espera
             try {
                 wait();
             } catch (InterruptedException e) {
@@ -29,9 +34,9 @@ public class Buffer {
             }
         }
         
-        contenido= value;
-        disponible = true;
-        notify();
+        contenido= value; //pone el valor en la mesa
+        disponible = true; //pone la mesa como disponible
+        notify(); //notifica a los hilos que estan esperando
     }
     
 }

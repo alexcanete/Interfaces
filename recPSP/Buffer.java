@@ -3,7 +3,7 @@ public class Buffer {
     private boolean disponible = false;
 
     public synchronized int entra() {
-        while (disponible = true) {
+        while (disponible == true) {
             
             System.out.println("Paciente recoge los resultados y sale");
             
