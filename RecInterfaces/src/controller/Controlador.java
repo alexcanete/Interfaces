@@ -27,4 +27,5 @@ public class Controlador {
         model.Conexion.setcontrasena(dbcontrasena);
 
     }
+    
 }

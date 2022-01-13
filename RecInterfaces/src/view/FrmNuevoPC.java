@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.MouseInputAdapter;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -14,12 +15,15 @@ import javax.swing.JComboBox;
 import javax.swing.JSpinner;
 import java.awt.Font;
 import java.awt.List;
+import java.awt.event.MouseListener;
+
 import javax.swing.SwingConstants;
 
 public class FrmNuevoPC extends JFrame {
 
 	private JPanel contentPane;
 	public static JTextField txtPrecio;
+	public static JLabel lblMarcaSeleccionada;
 
 	
 	
@@ -28,11 +32,11 @@ public class FrmNuevoPC extends JFrame {
 
 					
 				
-	public FrmNuevoPC() {
+	public <MouseEvent> FrmNuevoPC() {
 		setResizable(false);
 		FrmNuevoPC = this;
 
-		setTitle("Nuevo PC");
+		setTitle("Editar PC");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 379, 234);
 		contentPane = new JPanel();
@@ -81,7 +85,8 @@ public class FrmNuevoPC extends JFrame {
 		lblHP.setOpaque(true);
 		lblHP.setBackground(java.awt.Color.RED);
 		contentPane.add(lblHP);
-		
+
+	
 		JLabel lblLn = new JLabel("LN");
 		lblLn.setHorizontalAlignment(SwingConstants.CENTER);
 		lblLn.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -106,11 +111,42 @@ public class FrmNuevoPC extends JFrame {
 		lblAc.setBackground(java.awt.Color.YELLOW);
 		contentPane.add(lblAc);
 		
-		JLabel lblMarcaSeleccionada = new JLabel("HP");
+		lblMarcaSeleccionada = new JLabel("NULL");
 		lblMarcaSeleccionada.setHorizontalAlignment(SwingConstants.CENTER);
 		lblMarcaSeleccionada.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		lblMarcaSeleccionada.setBounds(247, 17, 30, 30);
 		contentPane.add(lblMarcaSeleccionada);
+
+		
+		//hacer click en Label
+		lblHP.addMouseListener(new MouseInputAdapter() {
+			public void mouseClicked(java.awt.event.MouseEvent evt) {
+				lblMarcaSeleccionada.setText("HP");
+				
+			}
+		});
+
+		lblLn.addMouseListener(new MouseInputAdapter() {
+			public void mouseClicked(java.awt.event.MouseEvent evt) {
+				lblMarcaSeleccionada.setText("LN");
+				
+			}
+		});
+
+		lblAs.addMouseListener(new MouseInputAdapter() {
+			public void mouseClicked(java.awt.event.MouseEvent evt) {
+				lblMarcaSeleccionada.setText("AS");
+				
+			}
+		});
+
+		lblAc.addMouseListener(new MouseInputAdapter() {
+			public void mouseClicked(java.awt.event.MouseEvent evt) {
+				lblMarcaSeleccionada.setText("AC");
+				
+			}
+		});
+
 		
 		textField = new JTextField();
 		textField.setColumns(10);
@@ -143,22 +179,21 @@ public class FrmNuevoPC extends JFrame {
 
 
 
-		// btnGuardar.addActionListener(e -> {
-		// 	controller.Controlador.nuevoChaleco();
-		// 	try {
-		// 		controller.Controlador.executeQuery("SELECT * FROM CHALECO");
-		// 	} catch (SQLException e1) {
-		// 		// TODO Auto-generated catch block
-		// 		e1.printStackTrace();
-		// 	}
+		btnGuardar.addActionListener(e -> {
+			try {
+				controller.Controlador.nuevoPc();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-		// 	dispose();
-
-
-		// });
+			dispose();
 
 
+		});
 
+
+		
 
 
 		btnCancelar.addActionListener(e -> {

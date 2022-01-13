@@ -81,7 +81,6 @@ public class FrmPrincipal extends JFrame {
 		menPc.add(btnNuevo);
 
 		btnNuevo.addActionListener(e ->{
-			logic.Logic.insert();
 			FrmNuevoPC frmNuevo = new FrmNuevoPC();
 			frmNuevo.setVisible(true);
 		});
@@ -109,8 +108,7 @@ public class FrmPrincipal extends JFrame {
 		
 		tablaPC = new JTable();
 		contentPane.add(tablaPC, BorderLayout.CENTER);
-		scrollPane.setViewportView(tablaPC);
-
+		
 	}
 
 }

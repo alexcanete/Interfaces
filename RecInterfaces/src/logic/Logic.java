@@ -18,10 +18,6 @@ public class Logic {
     
             Pc pc = new Pc();
             
-            pc.setsMarca("HP");
-            pc.setsModelo("ProBook");
-            pc.setsRam("8GB");
-            pc.setdPrecio(1000);
     
             session.save(pc); 
     

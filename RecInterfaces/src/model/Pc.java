@@ -21,7 +21,7 @@ public class Pc {
     @Column(name = "RAM")
     String sRam;
 
-    
+    @Column(name = "PRECIO")
     double dPrecio;
 
     public Pc() {
