@@ -1,13 +1,33 @@
 package model;
 
+import javax.persistence.*;
 import javax.print.DocFlavor.STRING;
 
+@Entity
+@Table(name = "DEFUNCIONES")
 public class Defunciones {
+
+    @Id
+    @GeneratedValue(generator = "miSecuencia")
+    @SequenceGenerator(name = "miSecuencia", sequenceName = "SEQ_DEF", allocationSize = 1)
+    @Column(name = "ID")
+    int id;
+
+    @Column(name = "CCAA")
     String sCcaa;
+
+    @Column(name = "TIPO DE DATO")
     String sTipoDeDato;
+
+    @Column(name = "PERIODO")
     String sPeriodo;
+
+    @Column(name = "TOTAL")
     String sTotal;
     
+    public Defunciones() {
+    }
+
     public Defunciones(String sCcaa, String sTipoDeDato, String sPeriodo, String sTotal) {
         this.sCcaa = sCcaa;
         this.sTipoDeDato = sTipoDeDato;
@@ -15,7 +35,20 @@ public class Defunciones {
         this.sTotal = sTotal;
     }
 
-    public Defunciones() {
+    public Defunciones(int id, String sCcaa, String sTipoDeDato, String sPeriodo, String sTotal) {
+        this.id = id;
+        this.sCcaa = sCcaa;
+        this.sTipoDeDato = sTipoDeDato;
+        this.sPeriodo = sPeriodo;
+        this.sTotal = sTotal;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getsCcaa() {
